@@ -26,7 +26,7 @@ while i <= 5:
     i = i + 1
 print("Done")
 
- #0616  猜谜游戏
+# 0616  猜谜游戏
 secret_number = 9
 guess_count = 0
 guess_limit = 3
@@ -39,4 +39,4 @@ while guess_count < guess_limit:
 else:
     print("Sorry, you failed!")
 
-#哥哥是猪猪
+# 0616 哥哥是猪猪
