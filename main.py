@@ -76,3 +76,47 @@ total = 0
 for price in prices:
     total += price
 print(f"Total: {total}")
+
+
+#0622 嵌套循环（for循环）
+numbers = [5, 2, 5, 2, 2]
+for i in numbers:
+    print("*" * i)
+
+numbers = [5, 2, 5, 2, 2]
+for i in numbers:
+    output = ""
+    for count in range(i):
+        output += "X"
+    print(output)
+
+#0622 找出最大的数字
+number = [1, 2, 8, 3, 4, 5, 6]
+print(max(number))
+
+number = [1, 2, 9, 3, 4, 5, 6]
+ma = number[0]
+for num in number:
+    if num > ma:
+        ma = num
+print(ma)
+
+#0622 矩形数字数组
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+print(matrix[1][2])
+for row in matrix:
+    for item in row:
+        print(item)
+
+
+#0622 删除列表上的副本
+numb = [2, 2, 4, 6, 3, 4, 6, 1]
+uni = []
+for nu in numb:
+    if nu not in uni:
+        uni.append(nu)
+print(uni)
