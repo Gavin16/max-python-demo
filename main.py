@@ -40,3 +40,6 @@ else:
     print("Sorry, you failed!")
 
 # 0616 哥哥是猪猪
+
+for it in "python":
+    print(it)
