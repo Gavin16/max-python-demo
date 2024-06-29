@@ -120,3 +120,55 @@ for nu in numb:
     if nu not in uni:
         uni.append(nu)
 print(uni)
+
+# 0629 元组
+numbers = (1, 2, 3)
+print(numbers[0])
+
+# 0629 拆包
+coordinates = (1, 2, 3)
+x, y, z = coordinates
+print(x)
+
+# x, y, z = coordinates相当于下面三行，实现相同结果的简写形式
+# x = coordinates[0]
+# y = coordinates[1]
+# z = coordinates[2]
+
+# 0629 字典
+# 使用[]或者调用.get可以防止在用户输入某个字符不是我们字典的一部分时，我们的程序不会报错
+
+customer = {
+    "name": "John Smith",
+    "age": 30,
+    "is_verified": True
+}
+customer["name"] = "Jack Smith"
+print(customer["name"])
+print(customer.get("bir", "Octorber 1 1992"))
+
+# 0629 数字转化为英文
+phone = input("Phone: ")
+digits_mapping = {
+    "1": "One",
+    "2": "Two",
+    "3": "Three",
+    "4": "Four"
+}
+output = ""
+for ch in phone:
+    output += digits_mapping.get(ch,"!") + " "
+print(output)
+
+
+# 0629 符号转化为emoji表情
+message = input(">")
+words = message.split(" ")
+emojis = {
+    ":)": "😊",
+    ":(": "😭"
+}
+output = ""
+for word in words:
+    output += emojis.get(word,word) + " "
+print(output)
