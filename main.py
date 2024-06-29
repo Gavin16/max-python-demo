@@ -172,3 +172,67 @@ output = ""
 for word in words:
     output += emojis.get(word,word) + " "
 print(output)
+
+# 0629 调用函数
+def greet_user():
+    print("Hi there!")
+    print("Welcome aboard")
+
+
+print("Start")
+greet_user()
+print('Finish')
+
+# 0629 参数/使用关键字参数在位置参数之后
+def greet_user(fist_name,last_name):
+    print(f"Hi {fist_name} {last_name}!")
+    print("Welcome aboard")
+
+
+print("Start")
+greet_user("John","Smith")
+greet_user("Mary",last_name="Moli")
+print('Finish')
+
+# 0629 返回语句
+def square(number):
+    return number * number
+
+
+print(square(3))
+
+# 自己整数输入改良版本
+def square(number):
+    return number * number
+
+
+number = int(input("Square: "))
+print(square(number))
+
+
+# 0629 创建可重用函数
+def emoji_converter(message):
+    words = message.split(" ")
+    emojis = {
+        ":)": "😊",
+        ":(": "😭"
+    }
+    output = ""
+    for word in words:
+        output += emojis.get(word, word) + " "
+    return output
+
+
+message = input(">")
+print(emoji_converter(message))
+
+# 0629 处理系统错误
+try:
+    age = int(input("Age:"))
+    income =20000
+    risk = income / age
+    print(age)
+except ZeroDivisionError:
+    print("Age cannot be 0.")
+except ValueError:
+    print("Invalid value")
