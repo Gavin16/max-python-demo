@@ -14,6 +14,9 @@
 #     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+# 0616
 i = 1
 while i <= 5:
     print('*' * i)
@@ -304,4 +307,55 @@ john.talk()
 
 bob = Person("Bob Smith")
 bob.talk()
+
+# 0706 继承
+# class Dog:
+#    def walk(self):
+#       print("walk")
+
+
+# class Cat:
+#     def walk(self):
+#         print("walk")
+
+
+# ————————————————————
+
+class Mammal:
+    def walk(self):
+        print("walk")
+
+
+class Cat(Mammal):
+    def be_annoying(self):
+        print("annoying")
+
+
+class Dog(Mammal):
+    def bark(self):
+        print("bark")
+
+
+cat1 = Cat()
+cat1.be_annoying()
+
+dog1 = Dog()
+dog1.walk()
+
+
+# 0706 模块
+
+import converters
+from converters import kg_to_lbs
+
+print(converters.kg_to_lbs(70))
+
+print(kg_to_lbs(100))
+
+# 0706 模块
+from b_maximum import find_max
+
+numbers = [10, 3, 6, 2]
+maximum = find_max(numbers)
+print(maximum)
 
