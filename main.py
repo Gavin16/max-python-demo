@@ -430,3 +430,75 @@ print(path.glob("*.py"))
 path = Path()
 for file in path.glob("*"):
     print(file)
+
+# 0709 项目1
+import openpyxl as xl
+wb = xl.load_workbook("transactions.xlsx")
+# print(wb.sheetnames)
+# sheet = wb['Sheet1'] 用'Sheet1' 报错, 改成了 '工作表 1'
+sheet = wb['工作表 1']
+cell = sheet["a1"]
+cell = sheet.cell(1, 1)
+print(cell.value)
+
+for row in range(1, sheet.max_row + 1):
+    print(row)
+
+for row in range(2, sheet.max_row + 1):
+    cell = sheet.cell(row, 3)
+    print(cell.value)
+
+
+import openpyxl as xl
+from openpyxl.chart import BarChart, Reference
+
+wb = xl.load_workbook("transactions.xlsx")
+sheet = wb['工作表 1']
+cell = sheet["a1"]
+cell = sheet.cell(1, 1)
+
+for row in range(2, sheet.max_row + 1):
+    cell = sheet.cell(row, 3)
+    corrected_price = cell.value * 2
+    corrected_price_cell =sheet.cell(row, 4)
+    corrected_price_cell.value = corrected_price
+
+values = Reference(sheet,
+          min_row=2,
+          max_row=sheet.max_row,
+          min_col=4,
+          max_col=4)
+
+chart = BarChart()
+chart.add_data(values)
+sheet.add_chart(chart, "e2")
+
+wb.save("transactions2.xlsx")
+
+
+# 最终版本
+import openpyxl as xl
+from openpyxl.chart import BarChart, Reference
+
+
+def process_workbook(filename):
+    wb = xl.load_workbook(filename)
+    sheet = wb['工作表 1']
+
+    for row in range(2, sheet.max_row + 1):
+        cell = sheet.cell(row, 3)
+        corrected_price = cell.value * 2
+        corrected_price_cell = sheet.cell(row, 4)
+        corrected_price_cell.value = corrected_price
+
+    values = Reference(sheet,
+                       min_row=2,
+                       max_row=sheet.max_row,
+                       min_col=4,
+                       max_col=4)
+
+    chart = BarChart()
+    chart.add_data(values)
+    sheet.add_chart(chart, "e2")
+
+    wb.save(filename)
