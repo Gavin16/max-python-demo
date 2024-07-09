@@ -359,3 +359,74 @@ numbers = [10, 3, 6, 2]
 maximum = find_max(numbers)
 print(maximum)
 
+# 0707包，方法一
+import ecommerce.shopping
+ecommerce.shopping.calc_shopping()
+
+# 0707包，方法二
+from ecommerce.shopping import calc_shopping
+
+calc_shopping()
+
+# 0707包，方法三
+from ecommerce import shopping
+
+shopping.calc_shopping()
+
+
+# 0707生成随机数 0～1之间的随机数
+import random
+
+for i in range(3):
+    print(random.random())
+
+# 10～20以内随机数
+import random
+
+for i in range(3):
+    print(random.randint(10, 20))
+
+# 随机产生一个领导
+import random
+
+members = ["John", "Mary", "Bob", "Mosh"]
+leader = random.choice(members)
+print(leader)
+
+# Dice = ["1", "2", "3", "4", "5", "6"]
+# roll =random.choice(Dice + Dice)
+# print(roll)
+
+# 随机骰子
+class Dice:
+    def roll(self):
+        first = random.randint(1, 6)
+        second = random.randint(1, 6)
+        return first, second
+
+
+dice = Dice()
+print(dice.roll())
+
+
+# 0707使用目录
+# print(path.mkdir())——新建目录
+# rmdir()——删除目录
+from pathlib import Path
+
+# Absolute path
+# c:\Program Files\Microsoft
+# /usr/local/bin
+# Relative path
+
+from pathlib import Path
+
+path = Path("ecommerce")
+print(path.exists())
+
+path = Path()
+print(path.glob("*.py"))
+
+path = Path()
+for file in path.glob("*"):
+    print(file)
